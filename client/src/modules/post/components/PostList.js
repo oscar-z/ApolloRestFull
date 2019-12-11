@@ -14,7 +14,13 @@ export default class PostList extends Component {
     showPost() {
         const { posts, postsLoading } = this.props;
 
-        if (!postsLoading && posts && posts.length > 0) {
+        if(postsLoading){
+            return(
+                <p>Cargando....</p>
+            )
+        }
+
+        if (posts.length > 0) {
             return posts.map(post => {
                 return (
                     <Card key={post._id} body outline className="post-card">
